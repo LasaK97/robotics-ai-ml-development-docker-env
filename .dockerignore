@@ -1,0 +1,147 @@
+# === Git ===
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+*.git
+
+# === ROS2 Build Artifacts ===
+# These are generated during build, don't need in image
+build/
+install/
+log/
+*.pyc
+__pycache__/
+*.egg-info/
+*.so
+*.o
+
+# === Python ===
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# === IDE & Editors ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# === Documentation ===
+# README is for users, not needed in image
+README.md
+QUICKSTART.md
+PACKAGE_LIST.md
+*.md
+docs/
+documentation/
+
+# === Docker Files ===
+# Don't copy Docker files into Docker image
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+*.dockerfile
+
+# === Shell Scripts ===
+# Build/management scripts are for host, not container
+build.sh
+run.sh
+manage.sh
+test.sh
+*.sh
+
+# === Logs ===
+*.log
+logs/
+log/
+*.out
+*.err
+
+# === Temporary Files ===
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# === OS Files ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === Bagfiles (ROS2 Recordings) ===
+# These are huge, don't include in image
+*.bag
+*.db3
+rosbag2_*/
+
+# === Video/Images (if not needed in image) ===
+# Uncomment if you don't need these in container
+# *.mp4
+# *.avi
+# *.mov
+# *.jpg
+# *.jpeg
+# *.png
+
+# === YOLO Model Weights (download at runtime) ===
+# Uncomment if models are large
+# *.pt
+# *.pth
+# *.weights
+
+# === Environment Files ===
+.env
+.env.*
+*.env
+
+# === SSL/Certificates ===
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+
+# === Archives ===
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.7z
+
+# === Node modules (if you have any JS) ===
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# === CMake ===
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# === Keep These (Examples) ===
+# If you have config files that MUST be in image:
+# !config.yaml
+# !important_file.txt

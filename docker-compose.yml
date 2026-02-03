@@ -1,0 +1,195 @@
+version: '3.8'
+
+services:
+  # ==========================================
+  # Main ROS2 Development Container
+  # ==========================================
+  manriix-ros2:
+    image: manriix-ros2-humble:latest
+    container_name: manriix-dev
+    hostname: manriix-robot
+    
+    # NVIDIA GPU access
+    runtime: nvidia
+    
+    # Hardware access for cameras, sensors
+    privileged: true
+    
+    # Use host network for ROS2 DDS communication
+    network_mode: "host"
+    
+    # Interactive terminal
+    stdin_open: true
+    tty: true
+    
+    # Environment variables
+    environment:
+      # Display for GUI apps (RViz, rqt)
+      - DISPLAY=${DISPLAY}
+      
+      # NVIDIA GPU
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      
+      # ROS2 Configuration
+      - ROS_DOMAIN_ID=0
+      - ROS_LOCALHOST_ONLY=0
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      
+      # Redis connection (container name as hostname)
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      
+      # LiveKit connection
+      - LIVEKIT_URL=ws://localhost:7880
+    
+    # Volume mounts
+    volumes:
+      # ROS2 workspace (your code)
+      - ~/Desktop/ros2_humble_ws:/root/ros2_ws:rw
+      
+      # X11 for GUI applications
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      
+      # USB devices (cameras, sensors)
+      - /dev:/dev
+      
+      # Shared memory for large messages
+      - /dev/shm:/dev/shm
+      
+      # Optional: Config files
+      # - ./config:/root/config:ro
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Default command
+    command: /bin/bash
+    
+    # Depends on these services
+    depends_on:
+      - redis
+      - livekit
+    
+    # Resource limits (optional)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 16G
+    #     reservations:
+    #       memory: 8G
+
+  # ==========================================
+  # Redis - State Management & Caching
+  # ==========================================
+  redis:
+    image: redis:7-alpine
+    container_name: manriix-redis
+    hostname: redis
+    
+    # Ports (accessible from host)
+    ports:
+      - "6379:6379"
+    
+    # Persistent storage
+    volumes:
+      - redis-data:/data
+      
+      # Optional: Custom redis config
+      # - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    
+    # Enable persistence
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    
+    # Always restart
+    restart: unless-stopped
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
+  # ==========================================
+  # LiveKit - Voice Assistant Server
+  # ==========================================
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: manriix-livekit
+    hostname: livekit
+    
+    # Ports
+    ports:
+      - "7880:7880"    # HTTP
+      - "7881:7881"    # HTTPS
+      - "7882:7882/udp"  # WebRTC
+    
+    # Optional: Config file
+    # volumes:
+    #   - ./livekit/config.yaml:/etc/livekit.yaml:ro
+    
+    # Always restart
+    restart: unless-stopped
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  # ==========================================
+  # Optional: Prometheus - Monitoring
+  # ==========================================
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   container_name: manriix-prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+  #     - prometheus-data:/prometheus
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #     - '--storage.tsdb.path=/prometheus'
+  #   restart: unless-stopped
+
+  # ==========================================
+  # Optional: Grafana - Visualization
+  # ==========================================
+  # grafana:
+  #   image: grafana/grafana-oss:latest
+  #   container_name: manriix-grafana
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-data:/var/lib/grafana
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - prometheus
+
+# ==========================================
+# Named Volumes (Persistent Storage)
+# ==========================================
+volumes:
+  redis-data:
+    driver: local
+  # prometheus-data:
+  #   driver: local
+  # grafana-data:
+  #   driver: local
+
+# ==========================================
+# Networks (Optional - using host network)
+# ==========================================
+# networks:
+#   manriix_network:
+#     driver: bridge
