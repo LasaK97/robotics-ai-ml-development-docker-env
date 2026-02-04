@@ -77,7 +77,7 @@ docker run -it \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -e NVIDIA_DRIVER_CAPABILITIES=all \
     -e ROS_DOMAIN_ID=0 \
-    -e RMW_IMPLEMENTATION=rmw_fastrtps_cpp \
+    -e RMW_IMPLEMENTATION=rmw_cyclonedds_cpp \
     -v "$WORKSPACE:/root/ros2_ws:rw" \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v /dev:/dev \

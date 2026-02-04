@@ -65,6 +65,10 @@ RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
     python3-rosdep \
     \
+    # CycloneDDS for real-time performance
+    ros-humble-rmw-cyclonedds-cpp \
+    ros-humble-cyclonedds \
+    \
     # Navigation2 complete stack
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
@@ -288,7 +292,7 @@ RUN echo "# ROS2 Humble Setup" >> /root/.bashrc \
     && echo "" >> /root/.bashrc \
     && echo "# ROS2 Environment Variables" >> /root/.bashrc \
     && echo "export ROS_DOMAIN_ID=0" >> /root/.bashrc \
-    && echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> /root/.bashrc \
+    && echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> /root/.bashrc \
     && echo "" >> /root/.bashrc \
     && echo "# Convenience aliases" >> /root/.bashrc \
     && echo "alias cb='cd /root/ros2_ws && colcon build --symlink-install'" >> /root/.bashrc \

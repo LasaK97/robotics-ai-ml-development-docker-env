@@ -134,6 +134,20 @@ else
     exit 1
 fi
 
+exit 1
+fi
+
+# Test 13: CycloneDDS
+echo -n "13. Testing CycloneDDS... "
+if docker exec "$CONTAINER_NAME" bash -c "source /opt/ros/humble/setup.bash && ros2 pkg list | grep -q cyclonedds" 2>/dev/null; then
+    echo -e "${GREEN}✓${NC}"
+else
+    echo -e "${RED}✗${NC}"
+    exit 1
+fi
+
+echo ""
+
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║           All Tests Passed Successfully! ✓                ║${NC}"

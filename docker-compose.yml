@@ -34,7 +34,7 @@ services:
       # ROS2 Configuration
       - ROS_DOMAIN_ID=0
       - ROS_LOCALHOST_ONLY=0
-      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       
       # Redis connection (container name as hostname)
       - REDIS_HOST=localhost
