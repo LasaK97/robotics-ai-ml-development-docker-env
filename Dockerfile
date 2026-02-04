@@ -164,23 +164,26 @@ RUN pip3 install --no-cache-dir --ignore-installed \
     torchvision==0.20.1+cu121 \
     --index-url https://download.pytorch.org/whl/cu121
 
-# Core ML/AI frameworks
+# Core ML/AI frameworks - SPLIT INTO SMALLER INSTALLS
 RUN pip3 install --no-cache-dir \
-    # Deep Learning frameworks
     onnx==1.19.1 \
-    onnxruntime-gpu==1.23.2 \
-    onnxslim==0.1.82 \
-    \
-    # HuggingFace ecosystem
+    onnxslim==0.1.82
+
+RUN pip3 install --no-cache-dir \
+    onnxruntime-gpu==1.23.2
+
+# HuggingFace ecosystem (separate layer)
+RUN pip3 install --no-cache-dir \
     transformers \
     accelerate \
     datasets \
     tokenizers \
     huggingface-hub==0.36.0 \
     safetensors==0.7.0 \
-    sentencepiece==0.2.1 \
-    \
-    # TensorRT Python bindings
+    sentencepiece==0.2.1
+
+# TensorRT 
+RUN pip3 install --no-cache-dir \
     nvidia-tensorrt
 
 # Computer Vision packages
