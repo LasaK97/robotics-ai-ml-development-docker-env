@@ -1,17 +1,22 @@
-# Robotics + AI/ML Development Docker Environment
+<p align="center">
+  <img src="https://img.shields.io/badge/Docker-Ready-blue?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/ROS2-Humble-green?style=for-the-badge&logo=ros&logoColor=white" alt="ROS2">
+  <img src="https://img.shields.io/badge/CUDA-12.6-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA">
+  <img src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
+</p>
 
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
-[![ROS2](https://img.shields.io/badge/ROS2-Humble-green.svg)](https://docs.ros.org/en/humble/)
-[![CUDA](https://img.shields.io/badge/CUDA-12.6-76B900.svg)](https://developer.nvidia.com/cuda-toolkit)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<h1 align="center">🤖 Robotics + AI/ML Development Docker Environment</h1>
 
-Production-grade Docker environment for autonomous robotics development with integrated AI/ML capabilities. Built for professional robotics engineers, researchers, and developers working on computer vision, autonomous navigation, and intelligent systems.
+<p align="center">
+  <strong>Production-grade Docker environment for autonomous robotics development with integrated AI/ML capabilities.</strong><br>
+  Built for professional robotics engineers, researchers, and developers working on computer vision, autonomous navigation, and intelligent systems.
+</p>
 
-**Developer:** Lasantha Kulasooriya  
-**Location:** Sri Lanka 🇱🇰  
-**Version:** 1.0.0  
-**Last Updated:** February 2026
+<p align="center">
+  <a href="https://www.linkedin.com/in/lasantha-kulasooriya/">LinkedIn</a> •
+  <a href="https://buymeacoffee.com/lasak97">Buy Me a Coffee ☕</a>
+</p>
 
 ---
 
