@@ -2692,4 +2692,10 @@ If you find this project useful, please give it a star! ⭐
 
 **Built with ❤️ for the robotics community**
 
+<p align="center">
+  <a href="https://buymeacoffee.com/lasak97">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-orange?style=for-the-badge" alt="Buy Me a Coffee">
+  </a>
+</p>
+
 *Last updated: February 2026*
