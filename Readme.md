@@ -2690,12 +2690,9 @@ If you find this project useful, please give it a star! ⭐
 
 ---
 
-**Built with ❤️ for the robotics community**
+---
 
 <p align="center">
-  <a href="https://buymeacoffee.com/lasak97">
-    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-orange?style=for-the-badge" alt="Buy Me a Coffee">
-  </a>
+  Made with ❤️ by <a href="https://www.linkedin.com/in/lasantha-kulasooriya/">Lasantha Kulasooriya</a><br>
+  <a href="https://buymeacoffee.com/lasak97">☕ Buy me a coffee</a> if this saved you time!
 </p>
-
-*Last updated: February 2026*
