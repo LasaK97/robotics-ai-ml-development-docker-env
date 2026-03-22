@@ -7,7 +7,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 echo -e "${BLUE}╔════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║          Manriix  Development Container Launcher           ║${NC}"
+echo -e "${BLUE}║          ROS2 Humble  Development Container Launcher           ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
 echo -e "${BLUE}           Developer: Lasantha Kulasooriya                     ${NC}"
 echo ""

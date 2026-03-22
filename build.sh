@@ -10,7 +10,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}╔════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║               Manriix Robot Docker Builder                 ║${NC}"
+echo -e "${BLUE}║               ROS2 Humble Robot Docker Builder                 ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
 echo -e "${BLUE}         Developer: Lasantha Kulasooriya                     ${NC}"
 echo ""

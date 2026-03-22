@@ -316,7 +316,7 @@ CMD ["/bin/bash"]
 
 # Build information
 LABEL maintainer="Hype Invention - Lasantha Kulsaooriya"
-LABEL description="Manriix Autonomous Photography Robot"
+LABEL description="ROS2 Humble Autonomous Photography Robot"
 LABEL version="1.0"
 LABEL cuda.version="12.6"
 LABEL ros.distro="humble"

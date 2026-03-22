@@ -14,7 +14,7 @@ NC='\033[0m'
 
 show_help() {
     echo -e "${BLUE}╔════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${BLUE}║          Manriix Container Management Helper              ║${NC}"
+    echo -e "${BLUE}║          ROS2 Humble Container Management Helper              ║${NC}"
     echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
     echo -e "${BLUE}           Developer: Lasantha Kulasooriya                     ${NC}"
     echo ""
@@ -103,7 +103,7 @@ case "$1" in
     status)
         if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
             echo -e "${BLUE}╔════════════════════════════════════════════════════════════╗${NC}"
-            echo -e "${BLUE}║              Manriix Container Status                     ║${NC}"
+            echo -e "${BLUE}║              ROS2 Humble Container Status                     ║${NC}"
             echo -e "${BLUE}╚════════════════════════════════════════════════════════════╝${NC}"
             echo ""
             docker ps -a --filter "name=^${CONTAINER_NAME}$" --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"
