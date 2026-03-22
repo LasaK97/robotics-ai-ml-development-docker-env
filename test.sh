@@ -134,9 +134,6 @@ else
     exit 1
 fi
 
-exit 1
-fi
-
 # Test 13: CycloneDDS
 echo -n "13. Testing CycloneDDS... "
 if docker exec "$CONTAINER_NAME" bash -c "source /opt/ros/humble/setup.bash && ros2 pkg list | grep -q cyclonedds" 2>/dev/null; then
