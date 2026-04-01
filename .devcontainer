@@ -1,0 +1,37 @@
+{
+  "name": "Manriix ROS2 Humble Dev",
+  "image": "manriix-ros2-humble:latest",
+  "runArgs": [
+    "--gpus", "all",
+    "--privileged",
+    "--network", "host",
+    "--volume", "/dev:/dev",
+    "--volume", "/dev/shm:/dev/shm",
+    "--volume", "/tmp/.X11-unix:/tmp/.X11-unix"
+  ],
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "NVIDIA_VISIBLE_DEVICES": "all",
+    "NVIDIA_DRIVER_CAPABILITIES": "all",
+    "ROS_DOMAIN_ID": "0",
+    "RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "ms-iot.vscode-ros",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "ros.distro": "humble"
+      }
+    }
+  },
+  "workspaceFolder": "/root/ros2_ws",
+  "postCreateCommand": "source /opt/ros/humble/setup.bash"
+}
